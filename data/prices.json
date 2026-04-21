@@ -11,7 +11,7 @@
     "age_col_label": "Âge",
     "age_note": "Les grilles tarifaires des différentes visites utilisent l'âge selon des critères variés. Mettez l'âge exact au moment de la visite pour un calcul du prix correct.",
     "disclaimer_online": "Prix pour un achat en avance en ligne — les prix sur place sont souvent plus hauts, voir sur les sites.",
-    "disclaimer_discounts": "Ils existeent souvent des réductions : séniors, handicapés, etc. — voir sur les sites.",
+    "disclaimer_discounts": "Ils existent souvent des réductions : séniors, handicapés, etc. — voir sur les sites.",
     "disclaimer_update": "Dernière mise à jour des prix ici en avril 2026 — ils ont potentiellement changé depuis.",
     "visits_type_col": "Type de visite",
     "visits_price_col": "Prix total",
