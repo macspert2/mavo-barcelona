@@ -3,11 +3,11 @@
 
   "texts": {
     "title": "Schätzen Sie die Kosten Ihrer Barcelona-Besuche",
-    "intro_1": "Geben Sie das Alter der Familienmitglieder ein und wählen Sie die gewünschten Attraktionen aus, um eine personalisierte Kostenschätzung zu erhalten.",
-    "intro_2": "Sie können dieses Tool auch nutzen, um schnell zu überprüfen, ob sich die meisten Kombi-Eintrittskarten in Barcelona wirklich lohnen.",
+    "intro_1": "Geben Sie das Alter der Familienmitglieder ein und wählen Sie die gewünschten Besuche aus, um eine personalisierte Kostenschätzung zu erhalten.",
+    "intro_2": "So können Sie auch ganz einfach die verschiedenen Barcelona-Kombipässe vergleichen (wir wurden von keinem davon überzeugt).",
     "ages_section_label": "Alter der Familienmitglieder",
     "age_col_label": "Alter",
-    "age_note": "Die verschiedenen Attraktionen verwenden unterschiedliche Altersgrenzen für ihre Preise. Geben Sie das genaue Alter zum Zeitpunkt des Besuchs ein, um eine korrekte Berechnung zu erhalten.",
+    "age_note": "Die verschiedenen Attraktionen verwenden unterschiedliche Alterskategorien für ihre Preise. Geben Sie das Alter zum Zeitpunkt des Besuchs ein, um eine exakte Berechnung zu erhalten.",
     "disclaimer_online": "Preise für den Online-Vorverkauf — die Kassenpreise vor Ort sind oft höher; siehe die jeweiligen Websites.",
     "disclaimer_discounts": "Häufig gibt es Ermäßigungen: Senioren, Menschen mit Behinderung usw. — siehe die jeweiligen Websites.",
     "disclaimer_update": "Preise hier zuletzt im April 2026 aktualisiert — sie können sich seitdem geändert haben.",
@@ -23,7 +23,9 @@
     "aria_age_member": "Alter von Mitglied",
     "aria_visits_table": "Attraktionen und Kosten",
     "aria_visit_type": "Besuchsart",
-    "aria_price_info": "Preisinformationen"
+    "aria_price_info": "Preisinformationen",
+    "mobile_label_type": "Art:",
+    "mobile_label_price": "Preis:"
   },
 
   "visitTypeLabels": {

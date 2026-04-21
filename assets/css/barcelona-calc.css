@@ -418,14 +418,14 @@
   }
 
   .bc-visit-type-cell::before {
-    content: 'Type :';
+    content: attr(data-label);
     font-size: 0.78rem;
     color: var(--bc-text-muted);
     white-space: nowrap;
     flex-shrink: 0;
   }
   .bc-price-cell::before {
-    content: 'Prix :';
+    content: attr(data-label);
     font-size: 0.78rem;
     color: var(--bc-text-muted);
     white-space: nowrap;

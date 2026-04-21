@@ -23,7 +23,9 @@
     "aria_age_member": "Âge du membre",
     "aria_visits_table": "Visites et coûts",
     "aria_visit_type": "Type de visite",
-    "aria_price_info": "Informations tarifaires"
+    "aria_price_info": "Informations tarifaires",
+    "mobile_label_type": "Type :",
+    "mobile_label_price": "Prix :"
   },
 
   "visitTypeLabels": {

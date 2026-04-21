@@ -3,11 +3,11 @@
 
   "texts": {
     "title": "Estimate the cost of your Barcelona visits",
-    "intro_1": "Enter your family members' ages and choose the visits you would like to do to see a personalised cost estimate.",
-    "intro_2": "You can also use this tool to easily check that most combined entry passes in Barcelona are not worth the cost.",
+    "intro_1": "Enter your family members' ages and choose the visits you want to make to get a personalised cost estimate.",
+    "intro_2": "You can also use it to more easily compare the various Barcelona city passes (we weren't tempted by any of them).",
     "ages_section_label": "Family members' ages",
     "age_col_label": "Age",
-    "age_note": "Different attractions use different age criteria for their pricing. Enter the exact age at the time of the visit for an accurate calculation.",
+    "age_note": "Different venues use different age criteria for pricing. Enter the age at the time of the visit for an exact calculation.",
     "disclaimer_online": "Prices for advance online purchase — on-the-door prices are often higher; see each venue's website.",
     "disclaimer_discounts": "Discounts often apply: seniors, disabled visitors, etc. — see each venue's website.",
     "disclaimer_update": "Prices last updated here in April 2026 — they may have changed since.",
@@ -23,7 +23,9 @@
     "aria_age_member": "Age of member",
     "aria_visits_table": "Visits and costs",
     "aria_visit_type": "Visit type",
-    "aria_price_info": "Pricing information"
+    "aria_price_info": "Pricing information",
+    "mobile_label_type": "Type:",
+    "mobile_label_price": "Price:"
   },
 
   "visitTypeLabels": {

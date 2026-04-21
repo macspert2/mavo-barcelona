@@ -226,7 +226,7 @@ function mavo_barcelona_shortcode() {
 									<span class="bc-footnote-marker"><?php echo esc_html( $venue['footnote'] ); ?></span>
 								<?php endif; ?>
 							</td>
-							<td class="bc-visit-type-cell">
+							<td class="bc-visit-type-cell" data-label="<?php echo esc_attr( $texts['mobile_label_type'] ?? '' ); ?>">
 								<select class="bc-visit-select" data-venue="<?php echo $vid; ?>"
 									aria-label="<?php echo esc_attr( ( $texts['aria_visit_type'] ?? 'Type de visite' ) . ' – ' . $venue['name'] ); ?>">
 									<?php foreach ( $visit_types as $vt_id ) :
@@ -239,7 +239,7 @@ function mavo_barcelona_shortcode() {
 									<?php endforeach; ?>
 								</select>
 							</td>
-							<td class="bc-price-cell">
+							<td class="bc-price-cell" data-label="<?php echo esc_attr( $texts['mobile_label_price'] ?? '' ); ?>">
 								<span class="bc-price-output" data-venue="<?php echo $vid; ?>">–</span>
 								<?php if ( $tooltip_text ) : ?>
 									<button
