@@ -18,13 +18,15 @@
     "total_label": "Total",
     "family_ticket_note": "billet famille appliqué",
     "footnote_star": "* Possible d'entrée gratuite certains jours — voir l'article pour les détails",
-    "footnote_star2": "** Possibilité d'acheter un billet combiné moins cher (uniquement en ligne et uniquement sans guide — voir sur le site pour plus de détails)"
+    "footnote_star2": "** Possibilité d'acheter un billet combiné moins cher (uniquement en ligne et uniquement sans guide — voir sur le site pour plus de détails)",
+    "footnote_star2_url": "https://www.palaumusica.cat/fr/visites/palau-et-sant-pau_1174310"
   },
 
   "venues": [
     {
       "id": "sagrada-familia",
       "name": "Sagrada Familia",
+      "url": "https://sagradafamilia.org/en/tickets-individuals",
       "footnote": null,
       "tooltip": "visite simple : 26 € / -30 ans : 24 € / - de 11 ans : gratuit\navec guide : 30 € / -30 ans : 28 € / - de 11 ans : gratuit\navec visite de la tour : 36 € / -30 ans : 34 € / - de 11 ans : gratuit\navec guide et visite de la tour : 40 € / -30 ans : 38 € / - de 11 ans : gratuit",
       "visitTypes": ["visite simple","avec guide","avec visite de la tour","avec guide et visite de la tour","–"],
@@ -38,6 +40,7 @@
     {
       "id": "casa-batllo",
       "name": "Casa Batlló",
+      "url": "https://www.casabatllo.es/fr/billets-ligne/",
       "footnote": null,
       "tooltip": "visite simple : 29 € / 13–17 ans : 23 € / - de 13 ans : gratuit",
       "visitTypes": ["visite simple","–"],
@@ -48,6 +51,7 @@
     {
       "id": "la-pedrera",
       "name": "La Pedrera / Casa Milà",
+      "url": "https://www.lapedrera.com/fr/billets/",
       "footnote": null,
       "tooltip": "visite simple : 25 € / 12–17 ans : 12,50 € / - de 12 ans : gratuit",
       "visitTypes": ["visite simple","–"],
@@ -58,6 +62,7 @@
     {
       "id": "palau-guell",
       "name": "Palau Güell",
+      "url": "https://entrades.palauguell.cat/muslinkIV/index.jsp?nom_cache=PALAU&property=PALAU&lang=3",
       "footnote": "*",
       "tooltip": "visite simple : 15 € / 13–17 ans : 5 € / - de 13 ans : gratuit",
       "visitTypes": ["visite simple","–"],
@@ -68,6 +73,7 @@
     {
       "id": "casa-vicens",
       "name": "Casa Vicens",
+      "url": "https://casavicens.org/fr",
       "footnote": null,
       "tooltip": "visite avec horaire spécifique : 24 € / -30 ans : 22 € / - de 12 ans : gratuit\nsans contrainte horaire : 27 € / -30 ans : 25 € / - de 12 ans : gratuit",
       "visitTypes": ["visite avec horaire spécifique","sans contrainte horaire","–"],
@@ -79,6 +85,7 @@
     {
       "id": "casa-amatler",
       "name": "Casa Amatler",
+      "url": "https://www.amatller.org/en/the-house-museum/",
       "footnote": null,
       "tooltip": "visite avec audio : 21 € / 8–24 ans : 14 € / - de 8 ans : gratuit\navec guide : 23 € / 8–24 ans : 16 € / - de 8 ans : gratuit",
       "visitTypes": ["visite avec audio","avec guide","–"],
@@ -90,6 +97,7 @@
     {
       "id": "palau-musica",
       "name": "Palau de la Música",
+      "url": "https://www.palaumusica.cat/en/visites/visits-and-tickets_1159168",
       "footnote": "**",
       "tooltip": "visite simple : 20 € / Billet famille 60 € (2 adultes + 2 enfants) / - de 10 ans : gratuit\navec audio (uniquement sur son propre téléphone) : 24 € / - de 10 ans : gratuit\navec guide : 24 € / Billet famille 72 € (2 adultes + 2 enfants) / - de 10 ans : gratuit",
       "visitTypes": ["visite simple","avec audio (uniquement sur son propre téléphone)","avec guide","–"],
@@ -106,6 +114,7 @@
     {
       "id": "hospital-sant-pau",
       "name": "Hospital Sant Pau",
+      "url": "https://santpaubarcelona.org/fr/visites/",
       "footnote": "**",
       "tooltip": "visite simple : 18 € / 12–18 ans : 12,60 € / - de 12 ans : gratuit\navec guide : 21 € / 12–18 ans : 14,70 € / - de 12 ans : 5 €",
       "visitTypes": ["visite simple","avec guide","–"],
@@ -117,6 +126,7 @@
     {
       "id": "musee-picasso",
       "name": "Musée Picasso",
+      "url": "https://museupicassobcn.cat/en/plan-your-visit",
       "footnote": "*",
       "tooltip": "visite simple : 12 € / - de 18 ans : gratuit\navec audio : 17 € / 12–17 ans : 5 € / - de 12 ans : gratuit",
       "visitTypes": ["visite simple","avec audio","–"],
@@ -128,6 +138,7 @@
     {
       "id": "musee-miro",
       "name": "Musée Miró",
+      "url": "https://www.fmirobcn.org/en/visit-us/tickets/",
       "footnote": null,
       "tooltip": "visite simple : 17 € / 13–25 ans : 11 € / 0–12 ans : gratuit\navec guide : 24 € / 13–25 ans : 18 € / 0–12 ans : 7 €",
       "visitTypes": ["visite simple","avec guide","–"],
@@ -139,6 +150,7 @@
     {
       "id": "mnac",
       "name": "MNAC",
+      "url": "https://tickets.museunacional.cat/muslinkIV/index.jsp?nom_cache=MUSEU&property=MUSEU&codiActiv=256&lang=3",
       "footnote": "*",
       "tooltip": "visite simple : 12 € / - de 16 ans : gratuit",
       "visitTypes": ["visite simple","–"],
@@ -149,6 +161,7 @@
     {
       "id": "parc-guell",
       "name": "Parc Güell",
+      "url": "https://parkguell.barcelona/fr/acheter-billets",
       "footnote": null,
       "tooltip": "visite simple : 18 € / 7–12 ans : 13,50 € / - de 7 ans : gratuit\navec guide : 35 € / 7–12 ans : 30,50 € / - de 7 ans : gratuit",
       "visitTypes": ["visite simple","avec guide","–"],

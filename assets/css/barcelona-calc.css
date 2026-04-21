@@ -25,8 +25,36 @@
   color: var(--bc-text);
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 16px 32px;
+  padding: 24px 28px 28px;
   box-sizing: border-box;
+  border: 2px solid #23527c;
+  border-radius: var(--bc-radius);
+}
+
+/* ── Venue & footnote links ──────────────────────────────────── */
+.bc-venue-link {
+  color: #23527c;
+  text-decoration: none;
+  font-weight: inherit;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+}
+.bc-venue-link:hover,
+.bc-venue-link:focus {
+  color: var(--bc-accent);
+  border-bottom-color: currentColor;
+  outline: none;
+}
+.bc-footnote-link {
+  color: var(--bc-text-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--bc-border);
+  transition: color 0.15s;
+}
+.bc-footnote-link:hover,
+.bc-footnote-link:focus {
+  color: var(--bc-accent);
+  outline: none;
 }
 
 /* ── Header ──────────────────────────────────────────────────── */

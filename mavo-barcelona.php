@@ -152,7 +152,13 @@ function mavo_barcelona_shortcode() {
 						?>
 						<tr class="bc-venue-row" data-venue="<?php echo $vid; ?>">
 							<td class="bc-venue-name">
-								<?php echo esc_html( $venue['name'] ); ?>
+								<?php
+								$venue_url = ! empty( $venue['url'] ) ? esc_url( $venue['url'] ) : '';
+								if ( $venue_url ) : ?>
+									<a href="<?php echo $venue_url; ?>" target="_blank" rel="noopener noreferrer" class="bc-venue-link"><?php echo esc_html( $venue['name'] ); ?></a>
+								<?php else :
+									echo esc_html( $venue['name'] );
+								endif; ?>
 								<?php if ( $footnote ) : ?>
 									<span class="bc-footnote-marker"><?php echo esc_html( $footnote ); ?></span>
 								<?php endif; ?>
@@ -200,8 +206,18 @@ function mavo_barcelona_shortcode() {
 
 		<!-- ── Footnotes ──────────────────────────────────────────── -->
 		<div class="bc-footnotes">
-			<p><?php echo esc_html( $texts['footnote_star']  ?? '' ); ?></p>
-			<p><?php echo esc_html( $texts['footnote_star2'] ?? '' ); ?></p>
+			<p><?php echo esc_html( $texts['footnote_star'] ?? '' ); ?></p>
+			<p>
+				<?php
+				$fn2     = $texts['footnote_star2']     ?? '';
+				$fn2_url = ! empty( $texts['footnote_star2_url'] ) ? esc_url( $texts['footnote_star2_url'] ) : '';
+				if ( $fn2_url ) :
+					echo '<a href="' . $fn2_url . '" target="_blank" rel="noopener noreferrer" class="bc-footnote-link">' . esc_html( $fn2 ) . '</a>';
+				else :
+					echo esc_html( $fn2 );
+				endif;
+				?>
+			</p>
 		</div>
 
 	</div><!-- .bc-wrap -->
