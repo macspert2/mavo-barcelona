@@ -1,0 +1,92 @@
+{
+  "_readme": "UK English translations. Keys must not be changed. Only translate the values. Update footnote_star2_url to the English version of the combined-ticket page when available.",
+
+  "texts": {
+    "title": "Estimate the cost of your Barcelona visits",
+    "intro_1": "Enter your family members' ages and choose the visits you would like to do to see a personalised cost estimate.",
+    "intro_2": "You can also use this tool to easily check that most combined entry passes in Barcelona are not worth the cost.",
+    "ages_section_label": "Family members' ages",
+    "age_col_label": "Age",
+    "age_note": "Different attractions use different age criteria for their pricing. Enter the exact age at the time of the visit for an accurate calculation.",
+    "disclaimer_online": "Prices for advance online purchase — on-the-door prices are often higher; see each venue's website.",
+    "disclaimer_discounts": "Discounts often apply: seniors, disabled visitors, etc. — see each venue's website.",
+    "disclaimer_update": "Prices last updated here in April 2026 — they may have changed since.",
+    "visits_col_label": "Visit",
+    "visits_type_col": "Visit type",
+    "visits_price_col": "Total price",
+    "total_label": "Total",
+    "family_ticket_note": "family ticket applied",
+    "footnote_star": "* Free entry possible on certain days — see the article for details",
+    "footnote_star2": "** A cheaper combined ticket may be available (online only, without a guide — see the website for more details)",
+    "footnote_star2_url": "https://www.palaumusica.cat/en/visites/visits-and-tickets_1159168",
+    "aria_ages_table": "Age input",
+    "aria_age_member": "Age of member",
+    "aria_visits_table": "Visits and costs",
+    "aria_visit_type": "Visit type",
+    "aria_price_info": "Pricing information"
+  },
+
+  "visitTypeLabels": {
+    "–":            "–",
+    "simple":       "standard visit",
+    "guided":       "with guide",
+    "tower":        "with tower visit",
+    "guided_tower": "with guide and tower visit",
+    "timed":        "timed entry",
+    "untimed":      "open-time entry",
+    "audio_guided": "audio-guided visit",
+    "audio_self":   "audio (on your own phone only)",
+    "audio":        "with audio guide"
+  },
+
+  "venues": [
+    {
+      "id": "sagrada-familia",
+      "tooltip": "Standard visit: €26 / under 30: €24 / under 11: free\nWith guide: €30 / under 30: €28 / under 11: free\nWith tower visit: €36 / under 30: €34 / under 11: free\nWith guide and tower: €40 / under 30: €38 / under 11: free"
+    },
+    {
+      "id": "casa-batllo",
+      "tooltip": "Standard visit: €29 / 13–17 yrs: €23 / under 13: free"
+    },
+    {
+      "id": "la-pedrera",
+      "tooltip": "Standard visit: €25 / 12–17 yrs: €12.50 / under 12: free"
+    },
+    {
+      "id": "palau-guell",
+      "tooltip": "Standard visit: €15 / 13–17 yrs: €5 / under 13: free"
+    },
+    {
+      "id": "casa-vicens",
+      "tooltip": "Timed entry: €24 / under 30: €22 / under 12: free\nOpen-time entry: €27 / under 30: €25 / under 12: free"
+    },
+    {
+      "id": "casa-amatler",
+      "tooltip": "Audio-guided visit: €21 / 8–24 yrs: €14 / under 8: free\nWith guide: €23 / 8–24 yrs: €16 / under 8: free"
+    },
+    {
+      "id": "palau-musica",
+      "tooltip": "Standard visit: €20 / Family ticket €60 (2 adults + 2 children) / under 10: free\nAudio (on your own phone only): €24 / under 10: free\nWith guide: €24 / Family ticket €72 (2 adults + 2 children) / under 10: free"
+    },
+    {
+      "id": "hospital-sant-pau",
+      "tooltip": "Standard visit: €18 / 12–24 yrs: €12.60 / under 12: free\nWith guide: €21 / 12–24 yrs: €14.70 / under 12: €5"
+    },
+    {
+      "id": "musee-picasso",
+      "tooltip": "Standard visit: €12 / under 18: free\nWith audio guide: €17 / 12–17 yrs: €5 / under 12: free"
+    },
+    {
+      "id": "musee-miro",
+      "tooltip": "Standard visit: €17 / 13–25 yrs: €11 / 0–12 yrs: free\nWith guide: €24 / 13–25 yrs: €18 / 0–12 yrs: €7"
+    },
+    {
+      "id": "mnac",
+      "tooltip": "Standard visit: €12 / under 16: free"
+    },
+    {
+      "id": "parc-guell",
+      "tooltip": "Standard visit: €18 / 7–12 yrs: €13.50 / under 7: free\nWith guide: €35 / 7–12 yrs: €30.50 / under 7: free"
+    }
+  ]
+}

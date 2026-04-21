@@ -1,0 +1,92 @@
+{
+  "_readme": "Deutsche Übersetzungen. Schlüssel dürfen nicht geändert werden — nur die Werte übersetzen. footnote_star2_url auf die deutschsprachige Version der Kombiticket-Seite aktualisieren, sofern verfügbar.",
+
+  "texts": {
+    "title": "Schätzen Sie die Kosten Ihrer Barcelona-Besuche",
+    "intro_1": "Geben Sie das Alter der Familienmitglieder ein und wählen Sie die gewünschten Attraktionen aus, um eine personalisierte Kostenschätzung zu erhalten.",
+    "intro_2": "Sie können dieses Tool auch nutzen, um schnell zu überprüfen, ob sich die meisten Kombi-Eintrittskarten in Barcelona wirklich lohnen.",
+    "ages_section_label": "Alter der Familienmitglieder",
+    "age_col_label": "Alter",
+    "age_note": "Die verschiedenen Attraktionen verwenden unterschiedliche Altersgrenzen für ihre Preise. Geben Sie das genaue Alter zum Zeitpunkt des Besuchs ein, um eine korrekte Berechnung zu erhalten.",
+    "disclaimer_online": "Preise für den Online-Vorverkauf — die Kassenpreise vor Ort sind oft höher; siehe die jeweiligen Websites.",
+    "disclaimer_discounts": "Häufig gibt es Ermäßigungen: Senioren, Menschen mit Behinderung usw. — siehe die jeweiligen Websites.",
+    "disclaimer_update": "Preise hier zuletzt im April 2026 aktualisiert — sie können sich seitdem geändert haben.",
+    "visits_col_label": "Attraktion",
+    "visits_type_col": "Besuchsart",
+    "visits_price_col": "Gesamtpreis",
+    "total_label": "Gesamt",
+    "family_ticket_note": "Familienticket angewendet",
+    "footnote_star": "* An bestimmten Tagen kostenloser Eintritt möglich — Details im Artikel",
+    "footnote_star2": "** Günstigeres Kombiticket erhältlich (nur online und nur ohne Führung — Details auf der Website)",
+    "footnote_star2_url": "https://www.palaumusica.cat/en/visites/visits-and-tickets_1159168",
+    "aria_ages_table": "Altersangaben",
+    "aria_age_member": "Alter von Mitglied",
+    "aria_visits_table": "Attraktionen und Kosten",
+    "aria_visit_type": "Besuchsart",
+    "aria_price_info": "Preisinformationen"
+  },
+
+  "visitTypeLabels": {
+    "–":            "–",
+    "simple":       "einfacher Besuch",
+    "guided":       "mit Führung",
+    "tower":        "mit Turmbesuch",
+    "guided_tower": "mit Führung und Turmbesuch",
+    "timed":        "Besuch zu festgelegter Zeit",
+    "untimed":      "Besuch ohne Zeitbindung",
+    "audio_guided": "Besuch mit Audioguide",
+    "audio_self":   "Audio (nur auf dem eigenen Smartphone)",
+    "audio":        "mit Audioguide"
+  },
+
+  "venues": [
+    {
+      "id": "sagrada-familia",
+      "tooltip": "Einfacher Besuch: 26 € / unter 30 J.: 24 € / unter 11 J.: kostenlos\nMit Führung: 30 € / unter 30 J.: 28 € / unter 11 J.: kostenlos\nMit Turmbesuch: 36 € / unter 30 J.: 34 € / unter 11 J.: kostenlos\nMit Führung und Turmbesuch: 40 € / unter 30 J.: 38 € / unter 11 J.: kostenlos"
+    },
+    {
+      "id": "casa-batllo",
+      "tooltip": "Einfacher Besuch: 29 € / 13–17 J.: 23 € / unter 13 J.: kostenlos"
+    },
+    {
+      "id": "la-pedrera",
+      "tooltip": "Einfacher Besuch: 25 € / 12–17 J.: 12,50 € / unter 12 J.: kostenlos"
+    },
+    {
+      "id": "palau-guell",
+      "tooltip": "Einfacher Besuch: 15 € / 13–17 J.: 5 € / unter 13 J.: kostenlos"
+    },
+    {
+      "id": "casa-vicens",
+      "tooltip": "Besuch zu festgelegter Zeit: 24 € / unter 30 J.: 22 € / unter 12 J.: kostenlos\nBesuch ohne Zeitbindung: 27 € / unter 30 J.: 25 € / unter 12 J.: kostenlos"
+    },
+    {
+      "id": "casa-amatler",
+      "tooltip": "Besuch mit Audioguide: 21 € / 8–24 J.: 14 € / unter 8 J.: kostenlos\nMit Führung: 23 € / 8–24 J.: 16 € / unter 8 J.: kostenlos"
+    },
+    {
+      "id": "palau-musica",
+      "tooltip": "Einfacher Besuch: 20 € / Familienticket 60 € (2 Erwachsene + 2 Kinder) / unter 10 J.: kostenlos\nAudio (nur auf dem eigenen Smartphone): 24 € / unter 10 J.: kostenlos\nMit Führung: 24 € / Familienticket 72 € (2 Erwachsene + 2 Kinder) / unter 10 J.: kostenlos"
+    },
+    {
+      "id": "hospital-sant-pau",
+      "tooltip": "Einfacher Besuch: 18 € / 12–24 J.: 12,60 € / unter 12 J.: kostenlos\nMit Führung: 21 € / 12–24 J.: 14,70 € / unter 12 J.: 5 €"
+    },
+    {
+      "id": "musee-picasso",
+      "tooltip": "Einfacher Besuch: 12 € / unter 18 J.: kostenlos\nMit Audioguide: 17 € / 12–17 J.: 5 € / unter 12 J.: kostenlos"
+    },
+    {
+      "id": "musee-miro",
+      "tooltip": "Einfacher Besuch: 17 € / 13–25 J.: 11 € / 0–12 J.: kostenlos\nMit Führung: 24 € / 13–25 J.: 18 € / 0–12 J.: 7 €"
+    },
+    {
+      "id": "mnac",
+      "tooltip": "Einfacher Besuch: 12 € / unter 16 J.: kostenlos"
+    },
+    {
+      "id": "parc-guell",
+      "tooltip": "Einfacher Besuch: 18 € / 7–12 J.: 13,50 € / unter 7 J.: kostenlos\nMit Führung: 35 € / 7–12 J.: 30,50 € / unter 7 J.: kostenlos"
+    }
+  ]
+}

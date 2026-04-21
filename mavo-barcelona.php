@@ -3,7 +3,7 @@
  * Plugin Name: Mavo Barcelona – Calculateur de visites
  * Plugin URI:  https://www.mamanvoyage.com/
  * Description: Calculateur interactif du coût des visites à Barcelone. Utilisez le shortcode [barcelona_calc] sur la page de votre choix.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Maman Voyage
  * License:     GPL-2.0-or-later
  * Text Domain: mavo-barcelona
@@ -12,7 +12,79 @@
 defined( 'ABSPATH' ) || exit;
 
 /* -----------------------------------------------------------------------
- * 1. Enqueue assets — only on pages that contain the shortcode
+ * 1. Data loading helpers
+ * --------------------------------------------------------------------- */
+
+/** Load prices.json (language-agnostic: IDs, price matrices, URLs). */
+function mavo_barcelona_load_prices() {
+	$file = plugin_dir_path( __FILE__ ) . 'data/prices.json';
+	if ( ! file_exists( $file ) ) return [];
+	$data = json_decode( file_get_contents( $file ), true );
+	return ( json_last_error() === JSON_ERROR_NONE ) ? $data : [];
+}
+
+/**
+ * Detect the active 2-letter language code.
+ * Uses Polylang if available; falls back to the WordPress locale.
+ */
+function mavo_barcelona_lang_code() {
+	if ( function_exists( 'pll_current_language' ) ) {
+		$lang = pll_current_language();
+		if ( $lang ) return $lang;
+	}
+	// Fallback: take first two characters of WP locale (e.g. 'fr_FR' → 'fr')
+	return substr( get_locale(), 0, 2 ) ?: 'fr';
+}
+
+/**
+ * Load the language file for the active (or given) language code.
+ * Falls back to fr.json if the requested file is missing.
+ */
+function mavo_barcelona_load_lang( $code = null ) {
+	if ( ! $code ) $code = mavo_barcelona_lang_code();
+	$base = plugin_dir_path( __FILE__ ) . 'data/lang/';
+	foreach ( [ $code, 'fr' ] as $try ) {
+		$file = $base . $try . '.json';
+		if ( file_exists( $file ) ) {
+			$data = json_decode( file_get_contents( $file ), true );
+			if ( json_last_error() === JSON_ERROR_NONE ) return $data;
+		}
+	}
+	return [];
+}
+
+/**
+ * Build the minimal data payload sent to JavaScript.
+ * Only canonical venue IDs, price matrices, family-ticket prices,
+ * and the one string the JS needs to render (family_ticket_note).
+ */
+function mavo_barcelona_js_data() {
+	$prices = mavo_barcelona_load_prices();
+	$lang   = mavo_barcelona_load_lang();
+	if ( empty( $prices ) || empty( $lang ) ) return [];
+
+	$venues_js = [];
+	foreach ( $prices['venues'] ?? [] as $venue ) {
+		$entry = [
+			'id'     => $venue['id'],
+			'prices' => $venue['prices'] ?? [],
+		];
+		if ( ! empty( $venue['familyTicket'] ) ) {
+			$entry['familyTicket'] = $venue['familyTicket'];
+		}
+		$venues_js[] = $entry;
+	}
+
+	return [
+		'texts'  => [
+			'family_ticket_note' => $lang['texts']['family_ticket_note'] ?? 'billet famille appliqué',
+		],
+		'venues' => $venues_js,
+	];
+}
+
+/* -----------------------------------------------------------------------
+ * 2. Enqueue assets — only on pages that contain the shortcode
  * --------------------------------------------------------------------- */
 add_action( 'wp_enqueue_scripts', 'mavo_barcelona_enqueue' );
 function mavo_barcelona_enqueue() {
@@ -39,28 +111,8 @@ function mavo_barcelona_enqueue() {
 		true  // load in footer
 	);
 
-	// Pass price data and texts to JS
-	wp_localize_script(
-		'mavo-barcelona-calc',
-		'bcData',
-		mavo_barcelona_load_data()
-	);
-}
-
-/* -----------------------------------------------------------------------
- * 2. Load price data from JSON file
- * --------------------------------------------------------------------- */
-function mavo_barcelona_load_data() {
-	$json_file = plugin_dir_path( __FILE__ ) . 'data/prices.json';
-	if ( ! file_exists( $json_file ) ) {
-		return [];
-	}
-	$json    = file_get_contents( $json_file );
-	$decoded = json_decode( $json, true );
-	if ( json_last_error() !== JSON_ERROR_NONE ) {
-		return [];
-	}
-	return $decoded;
+	// Pass minimal price data + current-language string to JS
+	wp_localize_script( 'mavo-barcelona-calc', 'bcData', mavo_barcelona_js_data() );
 }
 
 /* -----------------------------------------------------------------------
@@ -68,14 +120,25 @@ function mavo_barcelona_load_data() {
  * --------------------------------------------------------------------- */
 add_shortcode( 'barcelona_calc', 'mavo_barcelona_shortcode' );
 function mavo_barcelona_shortcode() {
-	$data = mavo_barcelona_load_data();
-	if ( empty( $data ) ) {
-		return '<p>Erreur : données de prix introuvables.</p>';
+	$prices = mavo_barcelona_load_prices();
+	$lang   = mavo_barcelona_load_lang();
+
+	if ( empty( $prices ) || empty( $lang ) ) {
+		return '<p>Erreur : données introuvables.</p>';
 	}
 
-	$texts  = $data['texts']  ?? [];
-	$ages   = $data['ages']   ?? [];
-	$venues = $data['venues'] ?? [];
+	$texts    = $lang['texts']            ?? [];
+	$vt_labels = $lang['visitTypeLabels'] ?? [];
+	$ages     = $prices['ages']           ?? [];
+	$venues   = $prices['venues']         ?? [];
+
+	// Build tooltip lookup indexed by venue ID from the language file
+	$tooltips = [];
+	foreach ( $lang['venues'] ?? [] as $lv ) {
+		if ( ! empty( $lv['id'] ) ) {
+			$tooltips[ $lv['id'] ] = $lv['tooltip'] ?? '';
+		}
+	}
 
 	ob_start();
 	?>
@@ -92,7 +155,7 @@ function mavo_barcelona_shortcode() {
 		<section class="bc-ages-section">
 			<h3 class="bc-section-title"><?php echo esc_html( $texts['ages_section_label'] ?? 'Âges' ); ?></h3>
 			<p class="bc-age-note"><?php echo esc_html( $texts['age_note'] ?? '' ); ?></p>
-			<table class="bc-ages-table" aria-label="Saisie des âges">
+			<table class="bc-ages-table" aria-label="<?php echo esc_attr( $texts['aria_ages_table'] ?? 'Saisie des âges' ); ?>">
 				<thead>
 					<tr>
 						<th scope="col">#</th>
@@ -101,7 +164,7 @@ function mavo_barcelona_shortcode() {
 				</thead>
 				<tbody>
 					<?php
-					// Default: persons 1-2 = '30-99', persons 3-6 = '–'
+					// Default: persons 1–2 = '30-99', persons 3–6 = '–'
 					$defaults = [ '30-99', '30-99', '–', '–', '–', '–' ];
 					for ( $i = 1; $i <= 6; $i++ ) :
 						$default_age = $defaults[ $i - 1 ];
@@ -109,7 +172,8 @@ function mavo_barcelona_shortcode() {
 						<tr>
 							<td class="bc-member-num"><?php echo $i; ?></td>
 							<td>
-								<select class="bc-age-select" data-member="<?php echo $i; ?>" aria-label="Âge du membre <?php echo $i; ?>">
+								<select class="bc-age-select" data-member="<?php echo $i; ?>"
+									aria-label="<?php echo esc_attr( ( $texts['aria_age_member'] ?? 'Âge du membre' ) . ' ' . $i ); ?>">
 									<?php foreach ( $ages as $age ) : ?>
 										<option value="<?php echo esc_attr( $age ); ?>"
 											<?php selected( (string) $age, $default_age ); ?>>
@@ -133,10 +197,10 @@ function mavo_barcelona_shortcode() {
 
 		<!-- ── Visits table ───────────────────────────────────────── -->
 		<section class="bc-visits-section">
-			<table class="bc-visits-table" aria-label="Visites et coûts">
+			<table class="bc-visits-table" aria-label="<?php echo esc_attr( $texts['aria_visits_table'] ?? 'Visites et coûts' ); ?>">
 				<thead>
 					<tr>
-						<th scope="col" class="bc-col-venue">Visite</th>
+						<th scope="col" class="bc-col-venue"><?php echo esc_html( $texts['visits_col_label'] ?? 'Visite' ); ?></th>
 						<th scope="col" class="bc-col-type"><?php echo esc_html( $texts['visits_type_col'] ?? 'Type de visite' ); ?></th>
 						<th scope="col" class="bc-col-price"><?php echo esc_html( $texts['visits_price_col'] ?? 'Prix total' ); ?></th>
 					</tr>
@@ -145,9 +209,8 @@ function mavo_barcelona_shortcode() {
 					<?php foreach ( $venues as $idx => $venue ) :
 						$vid          = esc_attr( $venue['id'] );
 						$visit_types  = $venue['visitTypes'] ?? [];
-						$tooltip_text = $venue['tooltip']    ?? '';
-						$footnote     = $venue['footnote']   ?? '';
-						// First venue defaults to 'visite simple', all others to '–'
+						$tooltip_text = $tooltips[ $venue['id'] ] ?? '';
+						// First venue defaults to its first visit type; all others default to '–'
 						$default_type = ( $idx === 0 ) ? ( $visit_types[0] ?? '–' ) : '–';
 						?>
 						<tr class="bc-venue-row" data-venue="<?php echo $vid; ?>">
@@ -159,16 +222,19 @@ function mavo_barcelona_shortcode() {
 								<?php else :
 									echo esc_html( $venue['name'] );
 								endif; ?>
-								<?php if ( $footnote ) : ?>
-									<span class="bc-footnote-marker"><?php echo esc_html( $footnote ); ?></span>
+								<?php if ( ! empty( $venue['footnote'] ) ) : ?>
+									<span class="bc-footnote-marker"><?php echo esc_html( $venue['footnote'] ); ?></span>
 								<?php endif; ?>
 							</td>
 							<td class="bc-visit-type-cell">
-								<select class="bc-visit-select" data-venue="<?php echo $vid; ?>" aria-label="Type de visite – <?php echo esc_attr( $venue['name'] ); ?>">
-									<?php foreach ( $visit_types as $vtype ) : ?>
-										<option value="<?php echo esc_attr( $vtype ); ?>"
-											<?php selected( $vtype, $default_type ); ?>>
-											<?php echo esc_html( $vtype ); ?>
+								<select class="bc-visit-select" data-venue="<?php echo $vid; ?>"
+									aria-label="<?php echo esc_attr( ( $texts['aria_visit_type'] ?? 'Type de visite' ) . ' – ' . $venue['name'] ); ?>">
+									<?php foreach ( $visit_types as $vt_id ) :
+										$vt_label = $vt_labels[ $vt_id ] ?? $vt_id;
+										?>
+										<option value="<?php echo esc_attr( $vt_id ); ?>"
+											<?php selected( $vt_id, $default_type ); ?>>
+											<?php echo esc_html( $vt_label ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>
@@ -179,7 +245,7 @@ function mavo_barcelona_shortcode() {
 									<button
 										class="bc-tooltip-btn"
 										type="button"
-										aria-label="Informations tarifaires"
+										aria-label="<?php echo esc_attr( $texts['aria_price_info'] ?? 'Informations tarifaires' ); ?>"
 										data-tooltip="<?php echo esc_attr( $tooltip_text ); ?>">
 										<span aria-hidden="true">ℹ</span>
 									</button>

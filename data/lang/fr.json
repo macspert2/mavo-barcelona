@@ -1,0 +1,92 @@
+{
+  "_readme": "Textes visibles par les visiteurs du blog — à traduire pour chaque langue. Copiez ce fichier (ex. en.json) et traduisez les valeurs (pas les clés). Les clés dans visitTypeLabels correspondent aux identifiants internes de prices.json.",
+
+  "texts": {
+    "title": "Estimez le coût de vos visites à Barcelone",
+    "intro_1": "Entrez l'âge des membres de votre famille et choisissez les visites que vous souhaitez faire pour voir une estimation du coût personnalisé pour vous.",
+    "intro_2": "Vous pouvez utiliser cet outil aussi pour vérifier plus facilement que la plupart des cartes d'entrées combinées à Barcelone ne valent pas le coût.",
+    "ages_section_label": "Âges des membres de la famille",
+    "age_col_label": "Âge",
+    "age_note": "Les grilles tarifaires des différentes visites utilisent l'âge selon des critères variés. Mettez l'âge exact au moment de la visite pour un calcul du prix correct.",
+    "disclaimer_online": "Prix pour un achat en avance en ligne — les prix sur place sont souvent plus hauts, voir sur les sites.",
+    "disclaimer_discounts": "Ils existent souvent des réductions : séniors, handicapés, etc. — voir sur les sites.",
+    "disclaimer_update": "Dernière mise à jour des prix ici en avril 2026 — ils ont potentiellement changé depuis.",
+    "visits_col_label": "Visite",
+    "visits_type_col": "Type de visite",
+    "visits_price_col": "Prix total",
+    "total_label": "Total",
+    "family_ticket_note": "billet famille appliqué",
+    "footnote_star": "* Possible d'entrée gratuite certains jours — voir l'article pour les détails",
+    "footnote_star2": "** Possibilité d'acheter un billet combiné moins cher (uniquement en ligne et uniquement sans guide — voir sur le site pour plus de détails)",
+    "footnote_star2_url": "https://www.palaumusica.cat/fr/visites/palau-et-sant-pau_1174310",
+    "aria_ages_table": "Saisie des âges",
+    "aria_age_member": "Âge du membre",
+    "aria_visits_table": "Visites et coûts",
+    "aria_visit_type": "Type de visite",
+    "aria_price_info": "Informations tarifaires"
+  },
+
+  "visitTypeLabels": {
+    "–":            "–",
+    "simple":       "visite simple",
+    "guided":       "avec guide",
+    "tower":        "avec visite de la tour",
+    "guided_tower": "avec guide et visite de la tour",
+    "timed":        "visite avec horaire spécifique",
+    "untimed":      "sans contrainte horaire",
+    "audio_guided": "visite avec audio",
+    "audio_self":   "avec audio (uniquement sur son propre téléphone)",
+    "audio":        "avec audio"
+  },
+
+  "venues": [
+    {
+      "id": "sagrada-familia",
+      "tooltip": "visite simple : 26 € / -30 ans : 24 € / - de 11 ans : gratuit\navec guide : 30 € / -30 ans : 28 € / - de 11 ans : gratuit\navec visite de la tour : 36 € / -30 ans : 34 € / - de 11 ans : gratuit\navec guide et visite de la tour : 40 € / -30 ans : 38 € / - de 11 ans : gratuit"
+    },
+    {
+      "id": "casa-batllo",
+      "tooltip": "visite simple : 29 € / 13–17 ans : 23 € / - de 13 ans : gratuit"
+    },
+    {
+      "id": "la-pedrera",
+      "tooltip": "visite simple : 25 € / 12–17 ans : 12,50 € / - de 12 ans : gratuit"
+    },
+    {
+      "id": "palau-guell",
+      "tooltip": "visite simple : 15 € / 13–17 ans : 5 € / - de 13 ans : gratuit"
+    },
+    {
+      "id": "casa-vicens",
+      "tooltip": "visite avec horaire spécifique : 24 € / -30 ans : 22 € / - de 12 ans : gratuit\nsans contrainte horaire : 27 € / -30 ans : 25 € / - de 12 ans : gratuit"
+    },
+    {
+      "id": "casa-amatler",
+      "tooltip": "visite avec audio : 21 € / 8–24 ans : 14 € / - de 8 ans : gratuit\navec guide : 23 € / 8–24 ans : 16 € / - de 8 ans : gratuit"
+    },
+    {
+      "id": "palau-musica",
+      "tooltip": "visite simple : 20 € / Billet famille 60 € (2 adultes + 2 enfants) / - de 10 ans : gratuit\navec audio (uniquement sur son propre téléphone) : 24 € / - de 10 ans : gratuit\navec guide : 24 € / Billet famille 72 € (2 adultes + 2 enfants) / - de 10 ans : gratuit"
+    },
+    {
+      "id": "hospital-sant-pau",
+      "tooltip": "visite simple : 18 € / 12–24 ans : 12,60 € / - de 12 ans : gratuit\navec guide : 21 € / 12–24 ans : 14,70 € / - de 12 ans : 5 €"
+    },
+    {
+      "id": "musee-picasso",
+      "tooltip": "visite simple : 12 € / - de 18 ans : gratuit\navec audio : 17 € / 12–17 ans : 5 € / - de 12 ans : gratuit"
+    },
+    {
+      "id": "musee-miro",
+      "tooltip": "visite simple : 17 € / 13–25 ans : 11 € / 0–12 ans : gratuit\navec guide : 24 € / 13–25 ans : 18 € / 0–12 ans : 7 €"
+    },
+    {
+      "id": "mnac",
+      "tooltip": "visite simple : 12 € / - de 16 ans : gratuit"
+    },
+    {
+      "id": "parc-guell",
+      "tooltip": "visite simple : 18 € / 7–12 ans : 13,50 € / - de 7 ans : gratuit\navec guide : 35 € / 7–12 ans : 30,50 € / - de 7 ans : gratuit"
+    }
+  ]
+}
