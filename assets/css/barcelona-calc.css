@@ -1,0 +1,430 @@
+/* ============================================================
+   barcelona-calc.css
+   Calculateur de visites à Barcelone — Maman Voyage
+   Responsive: desktop (max 960px) → mobile
+   ============================================================ */
+
+/* ── Custom properties (edit here to retheme) ───────────────── */
+.bc-wrap {
+  --bc-accent:       #c0392b;      /* coral red — Maman Voyage accent */
+  --bc-accent-light: #fdf0ef;
+  --bc-text:         #2c2c2c;
+  --bc-text-muted:   #6b6b6b;
+  --bc-border:       #e0e0e0;
+  --bc-bg:           #ffffff;
+  --bc-bg-alt:       #f9f9f9;
+  --bc-family:       #27ae60;      /* green badge for family ticket */
+  --bc-radius:       6px;
+  --bc-shadow:       0 2px 8px rgba(0,0,0,0.08);
+  --bc-font:         inherit;      /* inherits WordPress theme font */
+}
+
+/* ── Wrapper ─────────────────────────────────────────────────── */
+.bc-wrap {
+  font-family: var(--bc-font);
+  color: var(--bc-text);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+  box-sizing: border-box;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.bc-header {
+  margin-bottom: 28px;
+}
+.bc-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--bc-text);
+  line-height: 1.3;
+}
+.bc-intro {
+  margin: 0 0 8px;
+  color: var(--bc-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── Section headings ────────────────────────────────────────── */
+.bc-section-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--bc-text);
+  border-left: 3px solid var(--bc-accent);
+  padding-left: 10px;
+}
+
+/* ── Ages section ────────────────────────────────────────────── */
+.bc-ages-section {
+  margin-bottom: 28px;
+}
+.bc-age-note {
+  font-size: 0.85rem;
+  color: var(--bc-text-muted);
+  margin: 0 0 14px;
+  line-height: 1.5;
+  font-style: italic;
+}
+.bc-ages-table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 320px;
+}
+.bc-ages-table th,
+.bc-ages-table td {
+  padding: 6px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--bc-border);
+}
+.bc-ages-table thead th {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--bc-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--bc-border);
+  background: transparent;
+}
+.bc-ages-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.bc-member-num {
+  color: var(--bc-text-muted);
+  font-size: 0.9rem;
+  width: 36px;
+}
+
+/* ── Disclaimers ─────────────────────────────────────────────── */
+.bc-disclaimers {
+  background: var(--bc-bg-alt);
+  border-left: 3px solid var(--bc-accent-light);
+  border-radius: 0 var(--bc-radius) var(--bc-radius) 0;
+  padding: 12px 16px;
+  margin-bottom: 28px;
+}
+.bc-disclaimers p {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  color: var(--bc-text-muted);
+  line-height: 1.5;
+}
+.bc-disclaimers p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Visits table ────────────────────────────────────────────── */
+.bc-visits-section {
+  overflow-x: auto;   /* graceful horizontal scroll on very small screens */
+  -webkit-overflow-scrolling: touch;
+}
+.bc-visits-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.92rem;
+}
+.bc-visits-table th {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--bc-text-muted);
+  border-bottom: 2px solid var(--bc-border);
+  padding: 8px 12px;
+  background: transparent;
+  text-align: left;
+  white-space: nowrap;
+}
+.bc-visits-table td {
+  padding: 10px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--bc-border);
+}
+.bc-venue-row:hover {
+  background: var(--bc-bg-alt);
+}
+.bc-venue-row.bc-row-skipped {
+  opacity: 0.45;
+}
+.bc-col-venue { width: 35%; min-width: 140px; }
+.bc-col-type  { width: 45%; }
+.bc-col-price { width: 20%; min-width: 90px; text-align: right; white-space: nowrap; }
+.bc-visits-table .bc-col-price { text-align: right; }
+
+.bc-venue-name {
+  font-weight: 500;
+  line-height: 1.3;
+}
+.bc-footnote-marker {
+  color: var(--bc-accent);
+  font-size: 0.8em;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+/* ── Price output ────────────────────────────────────────────── */
+.bc-price-cell {
+  text-align: right;
+  position: relative;
+  white-space: nowrap;
+}
+.bc-price-output {
+  font-weight: 600;
+  color: var(--bc-text-muted);
+  font-size: 0.95rem;
+}
+.bc-price-output.bc-price-active {
+  color: var(--bc-accent);
+}
+.bc-price-output.bc-price-family {
+  color: var(--bc-family);
+}
+
+/* Family-ticket badge */
+.bc-family-badge {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--bc-family);
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+/* ── Total row ───────────────────────────────────────────────── */
+.bc-total-row {
+  border-top: 2px solid var(--bc-text);
+}
+.bc-total-row td {
+  padding: 12px 12px;
+  border-bottom: none;
+}
+.bc-total-label {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.bc-total-price-cell {
+  text-align: right;
+}
+.bc-total-output {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--bc-accent);
+}
+
+/* ── Footnotes ───────────────────────────────────────────────── */
+.bc-footnotes {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--bc-border);
+}
+.bc-footnotes p {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  color: var(--bc-text-muted);
+  line-height: 1.5;
+}
+.bc-footnotes p:last-child { margin-bottom: 0; }
+
+/* ── Selects ─────────────────────────────────────────────────── */
+.bc-age-select,
+.bc-visit-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 7px 30px 7px 10px;
+  border: 1px solid var(--bc-border);
+  border-radius: var(--bc-radius);
+  background: var(--bc-bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b6b6b'/%3E%3C/svg%3E") no-repeat right 10px center;
+  background-size: 10px 6px;
+  font-size: 0.88rem;
+  color: var(--bc-text);
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.4;
+}
+.bc-age-select:focus,
+.bc-visit-select:focus {
+  outline: none;
+  border-color: var(--bc-accent);
+  box-shadow: 0 0 0 2px rgba(192,57,43,0.15);
+}
+.bc-ages-table .bc-age-select {
+  max-width: 140px;
+}
+
+/* ── Tooltip button ──────────────────────────────────────────── */
+.bc-tooltip-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--bc-border);
+  border-radius: 50%;
+  background: var(--bc-bg);
+  color: var(--bc-text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 6px;
+  vertical-align: middle;
+  line-height: 1;
+  transition: border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+.bc-tooltip-btn:hover,
+.bc-tooltip-btn:focus {
+  border-color: var(--bc-accent);
+  color: var(--bc-accent);
+  outline: none;
+}
+
+/* ── Tooltip box ─────────────────────────────────────────────── */
+.bc-tooltip-box {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 100;
+  background: var(--bc-text);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  padding: 10px 14px;
+  border-radius: var(--bc-radius);
+  box-shadow: var(--bc-shadow);
+  white-space: pre-line;    /* honour \n line breaks in tooltip data */
+  min-width: 220px;
+  max-width: 320px;
+  text-align: left;
+  font-weight: 400;
+}
+.bc-tooltip-box::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 6px;
+  border: 6px solid transparent;
+  border-top: none;
+  border-bottom-color: var(--bc-text);
+}
+.bc-tooltip-box.bc-tooltip-open {
+  display: block;
+}
+
+/* ============================================================
+   RESPONSIVE — mobile first adjustments
+   ============================================================ */
+
+/* Tablet / mid (≤ 680px) */
+@media (max-width: 680px) {
+  .bc-title { font-size: 1.25rem; }
+
+  .bc-visits-table th,
+  .bc-visits-table td {
+    padding: 8px 8px;
+    font-size: 0.85rem;
+  }
+
+  .bc-col-venue { width: 30%; min-width: 110px; }
+  .bc-col-type  { width: 48%; }
+  .bc-col-price { min-width: 72px; }
+
+  .bc-visit-select {
+    font-size: 0.82rem;
+    padding: 6px 24px 6px 8px;
+  }
+}
+
+/* Mobile (≤ 480px) — stack the visits table as cards */
+@media (max-width: 480px) {
+  .bc-visits-table thead { display: none; }
+
+  .bc-visits-table,
+  .bc-visits-table tbody,
+  .bc-visits-table tfoot,
+  .bc-visits-table tr,
+  .bc-visits-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .bc-venue-row {
+    background: var(--bc-bg);
+    border: 1px solid var(--bc-border);
+    border-radius: var(--bc-radius);
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    box-shadow: var(--bc-shadow);
+  }
+  .bc-venue-row:hover { background: var(--bc-bg-alt); }
+
+  .bc-venue-row td {
+    padding: 4px 0;
+    border-bottom: none;
+  }
+
+  .bc-venue-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--bc-border);
+    margin-bottom: 4px;
+  }
+
+  .bc-visit-type-cell,
+  .bc-price-cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .bc-visit-type-cell::before {
+    content: 'Type :';
+    font-size: 0.78rem;
+    color: var(--bc-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .bc-price-cell::before {
+    content: 'Prix :';
+    font-size: 0.78rem;
+    color: var(--bc-text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .bc-price-cell {
+    text-align: left;
+  }
+
+  .bc-visit-select { width: auto; flex: 1; }
+
+  /* total row on mobile */
+  .bc-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--bc-text);
+    border-radius: var(--bc-radius);
+    padding: 12px;
+    margin-top: 4px;
+    background: var(--bc-bg-alt);
+  }
+  .bc-total-row td { padding: 0; border: none; width: auto; }
+  .bc-total-price-cell { text-align: right; }
+
+  /* tooltip on mobile: open above if near bottom, else default */
+  .bc-tooltip-box {
+    right: auto;
+    left: 0;
+    min-width: 260px;
+    max-width: calc(100vw - 32px);
+  }
+}
