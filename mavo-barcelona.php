@@ -21,21 +21,21 @@ function mavo_barcelona_enqueue() {
 		return;
 	}
 
-	$plugin_url = plugin_dir_url( __FILE__ );
-	$version    = '1.0.0';
+	$plugin_url  = plugin_dir_url( __FILE__ );
+	$plugin_path = plugin_dir_path( __FILE__ );
 
 	wp_enqueue_style(
 		'mavo-barcelona-calc',
 		$plugin_url . 'assets/css/barcelona-calc.css',
 		[],
-		$version
+		filemtime( $plugin_path . 'assets/css/barcelona-calc.css' )
 	);
 
 	wp_enqueue_script(
 		'mavo-barcelona-calc',
 		$plugin_url . 'assets/js/barcelona-calc.js',
 		[],
-		$version,
+		filemtime( $plugin_path . 'assets/js/barcelona-calc.js' ),
 		true  // load in footer
 	);
 
