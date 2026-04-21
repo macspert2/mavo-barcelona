@@ -210,6 +210,10 @@
   color: var(--bc-family);
 }
 
+/* Price-update flash */
+@keyframes bc-flash { from { background-color: #fff3cd; } to { background-color: transparent; } }
+.bc-price-flash { animation: bc-flash 0.6s ease-out; }
+
 /* Family-ticket badge */
 .bc-family-badge {
   display: block;

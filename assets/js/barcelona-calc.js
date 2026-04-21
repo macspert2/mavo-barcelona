@@ -90,6 +90,15 @@
   }
 
   /* ------------------------------------------------------------------
+   * Flash a price cell when its value changes
+   * ------------------------------------------------------------------ */
+  function flashPrice(el) {
+    el.classList.remove('bc-price-flash');
+    void el.offsetWidth; // force reflow so the animation restarts
+    el.classList.add('bc-price-flash');
+  }
+
+  /* ------------------------------------------------------------------
    * Main recalculate — runs on every select change
    * ------------------------------------------------------------------ */
   function recalculate() {
@@ -108,13 +117,17 @@
       var visitType = selectEl.value;
       var result    = calcVenueCost(venue, visitType, ages);
 
+      var newText = (result === null) ? '–' : formatPrice(result.cost);
+      if (priceEl.textContent !== newText) {
+        priceEl.textContent = newText;
+        flashPrice(priceEl.closest('td'));
+      }
+
       if (result === null) {
         // not visiting
-        priceEl.textContent = '–';
         priceEl.classList.remove('bc-price-active', 'bc-price-family');
         if (rowEl) rowEl.classList.add('bc-row-skipped');
       } else {
-        priceEl.textContent = formatPrice(result.cost);
         priceEl.classList.add('bc-price-active');
         priceEl.classList.remove('bc-price-family');
         if (rowEl) rowEl.classList.remove('bc-row-skipped');
