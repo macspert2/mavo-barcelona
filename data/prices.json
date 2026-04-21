@@ -11,7 +11,7 @@
     "age_col_label": "Âge",
     "age_note": "Les grilles tarifaires des différentes visites utilisent l'âge selon des critères variés. Mettez l'âge exact au moment de la visite pour un calcul du prix correct.",
     "disclaimer_online": "Prix pour un achat en avance en ligne — les prix sur place sont souvent plus hauts, voir sur les sites.",
-    "disclaimer_discounts": "Il existe souvent des réductions : séniors, handicapés, etc. — voir sur les sites.",
+    "disclaimer_discounts": "Ils existeent souvent des réductions : séniors, handicapés, etc. — voir sur les sites.",
     "disclaimer_update": "Dernière mise à jour des prix ici en avril 2026 — ils ont potentiellement changé depuis.",
     "visits_type_col": "Type de visite",
     "visits_price_col": "Prix total",
@@ -116,11 +116,11 @@
       "name": "Hospital Sant Pau",
       "url": "https://santpaubarcelona.org/fr/visites/",
       "footnote": "**",
-      "tooltip": "visite simple : 18 € / 12–18 ans : 12,60 € / - de 12 ans : gratuit\navec guide : 21 € / 12–18 ans : 14,70 € / - de 12 ans : 5 €",
+      "tooltip": "visite simple : 18 € / 12–24 ans : 12,60 € / - de 12 ans : gratuit\navec guide : 21 € / 12–24 ans : 14,70 € / - de 12 ans : 5 €",
       "visitTypes": ["visite simple","avec guide","–"],
       "prices": {
-        "visite simple": {"30-99":18,"29":18,"28":18,"27":18,"26":18,"25":18,"24":18,"23":18,"22":18,"21":18,"20":18,"19":18,"18":12.6,"17":12.6,"16":12.6,"15":12.6,"14":12.6,"13":12.6,"12":12.6,"11":0,"10":0,"9":0,"8":0,"7":0,"0-6":0,"–":0},
-        "avec guide":    {"30-99":21,"29":21,"28":21,"27":21,"26":21,"25":21,"24":21,"23":21,"22":21,"21":21,"20":21,"19":21,"18":14.7,"17":14.7,"16":14.7,"15":14.7,"14":14.7,"13":14.7,"12":14.7,"11":5,"10":5,"9":5,"8":5,"7":5,"0-6":5,"–":0}
+        "visite simple": {"30-99":18,"29":18,"28":18,"27":18,"26":18,"25":18,"24":12.6,"23":12.6,"22":12.6,"21":12.6,"20":12.6,"19":12.6,"18":12.6,"17":12.6,"16":12.6,"15":12.6,"14":12.6,"13":12.6,"12":12.6,"11":0,"10":0,"9":0,"8":0,"7":0,"0-6":0,"–":0},
+        "avec guide":    {"30-99":21,"29":21,"28":21,"27":21,"26":21,"25":21,"24":14.7,"23":14.7,"22":14.7,"21":14.7,"20":14.7,"19":14.7,"18":14.7,"17":14.7,"16":14.7,"15":14.7,"14":14.7,"13":14.7,"12":14.7,"11":5,"10":5,"9":5,"8":5,"7":5,"0-6":5,"–":0}
       }
     },
     {
